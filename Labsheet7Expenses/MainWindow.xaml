@@ -6,15 +6,17 @@
         xmlns:local="clr-namespace:Labsheet7Expenses"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Expenses_Calculator_Loaded">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="313*"/>
-            <ColumnDefinition Width="83*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox x:Name="lbxExpenses" HorizontalAlignment="Left" Height="284" Margin="90,29,0,0" VerticalAlignment="Top" Width="600" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnAddExpenses" Content="Add Expenses" HorizontalAlignment="Left" Margin="90,344,0,0" VerticalAlignment="Top" Width="84" Height="26" Click="btnAddExpenses_Click"/>
-        <Label x:Name="Label" Content="Total Expenses" HorizontalAlignment="Left" Margin="369,344,0,0" VerticalAlignment="Top" Width="143"/>
-        <TextBlock x:Name="txtBlkTotal" HorizontalAlignment="Left" Margin="530,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="26" Grid.ColumnSpan="2"/>
+    <UniformGrid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="313*"/>
+                <ColumnDefinition Width="83*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="lbxExpenses" HorizontalAlignment="Left" Height="284" Margin="90,29,0,0" VerticalAlignment="Top" Width="600" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnAddExpenses" Content="Add Expenses" HorizontalAlignment="Left" Margin="90,344,0,0" VerticalAlignment="Top" Width="84" Height="26" Click="btnAddExpenses_Click"/>
+            <Label x:Name="txtBlkTotal1" Content="Total Expenses" HorizontalAlignment="Left" Margin="369,344,0,0" VerticalAlignment="Top" Width="143"/>
+            <TextBlock x:Name="txtBlkTotal" HorizontalAlignment="Left" Margin="530,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="26" Grid.ColumnSpan="2"/>
 
-    </Grid>
+        </Grid>
+    </UniformGrid>
 </Window>

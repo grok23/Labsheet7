@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClubMembersList
+{
+    public enum MemberType{Full,OffPeak,Student,OAP,}
+
+    class Members
+    {
+        private int _memberCount;
+        public static int TotalMembers;
+        public int MemberCount
+        {
+            get { return _memberCount; }
+            set
+            {
+                TotalMembers += value;
+                _memberCount = value;
+            }
+        }
+        public string Name { get; set; }
+        public DateTime JoinDate { get; set; }
+        public MemberType MembersType{get; set; }
+
+        public Members(string name, DateTime joinDate,  MemberType membersType)
+        {
+            Name = name;
+            MembersType = membersType;
+            JoinDate = joinDate;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name}  {MembersType}  {JoinDate.ToShortDateString()}";
+        }
+    }
+}
