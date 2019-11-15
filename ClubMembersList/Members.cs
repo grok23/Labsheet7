@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace ClubMembersList
 {
-    public enum MemberType{Full,OffPeak,Student,OAP,}
+    public enum MemberType{Full, OffPeak , Student, OAP}
 
     class Members
     {
@@ -23,18 +24,52 @@ namespace ClubMembersList
         }
         public string Name { get; set; }
         public DateTime JoinDate { get; set; }
-        public MemberType MembersType{get; set; }
+        //MemberType _membersType;
+            
+        public MemberType MembersType { get; set; }
+        //{
+        //    get
+        //    {
+        //        return _membersType;
+        //    }
+        //    set
+        //    {
+        //        if (MembersType != value)
+        //        {
+        //            _membersType = value;
+        //            //RaisePropertyChanged("MembersType");
+        //        }
+        //    }
+        //}
+        //constructors
+        public Members()
+        {
+            MemberCount++;
+        }
+
 
         public Members(string name, DateTime joinDate,  MemberType membersType)
         {
             Name = name;
             MembersType = membersType;
             JoinDate = joinDate;
+            MemberCount++;
         }
 
+        //override ToString
         public override string ToString()
         {
-            return $"{Name}  {MembersType}  {JoinDate.ToShortDateString()}";
+            return $"{Name}, {MembersType}, {JoinDate.ToShortDateString()}";
         }
+
+        //void RaisePropertyChanged(string prop)
+        //{
+        //    if (PropertyChanged != null) { PropertyChanged(this, new PropertyChangedEventArgs(prop)); }
+        //}
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //public static implicit operator Members(Members v)
+        //{
+        //   throw new NotImplementedException();
+        //}
     }
 }

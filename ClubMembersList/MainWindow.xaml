@@ -1,22 +1,32 @@
-﻿<Window x:Name="MainWindow1" x:Class="ClubMembersList.MainWindow"
+﻿<Window x:Name="Main_Window" x:Class="ClubMembersList.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClubMembersList"
+        xmlns:codeg="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Club Members" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Main_Window_Loaded">
+    <Window.Resources>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type codeg:Enum}" x:Key="MyEnum">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:MemberType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
-        <ListBox x:Name="LiBxMembers" HorizontalAlignment="Left" Height="335" Margin="52,29,0,0" VerticalAlignment="Top" Width="303" MouseDoubleClick="LiBxMembers_MouseDoubleClick" SelectionChanged="LiBxMembers_SelectionChanged"/>
+        <ListBox x:Name="LiBxMembers" HorizontalAlignment="Left" Height="335" Margin="52,29,0,0" VerticalAlignment="Top" Width="303" MouseDoubleClick="LiBxMembers_MouseDoubleClick" SelectionChanged="LiBxMembers_SelectionChanged">
+        </ListBox>
         <Label x:Name="lblMemberType" Content="Member Type" HorizontalAlignment="Left" Margin="404,37,0,0" VerticalAlignment="Top" Width="124"/>
-        <ComboBox x:Name="cmbBxMemberType" HorizontalAlignment="Left" Margin="579,41,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="txtBlk" HorizontalAlignment="Left" Margin="579,100,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="120" Height="29"/>
+        <ComboBox x:Name="cmbBxMemberType" HorizontalAlignment="Left" Margin="579,41,0,0" VerticalAlignment="Top" Width="120" DropDownClosed="cmbBxMemberType_DropDownClosed" ItemsSource="{Binding Source={StaticResource MyEnum}}" SelectedValue="{Binding UserType, Mode=TwoWay}" />
         <Label x:Name="lblName" Content="Name" HorizontalAlignment="Left" Margin="404,100,0,0" VerticalAlignment="Top" Width="93"/>
         <Label x:Name="lblDateJoined" Content="Date Joined" HorizontalAlignment="Left" Margin="404,167,0,0" VerticalAlignment="Top" Width="124"/>
         <DatePicker x:Name="dtPckrDate" HorizontalAlignment="Left" Margin="579,177,0,0" VerticalAlignment="Top" Width="120" MouseDown="dtPckrDate_MouseDown"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="624,262,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
-        <TextBlock x:Name="txtBlkNumberMembers" HorizontalAlignment="Left" Margin="579,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26" ContextMenuClosing="txtBlkNumberMembers_ContextMenuClosing"/>
+        <TextBlock x:Name="txtBlkNumberMembers" HorizontalAlignment="Left" Margin="579,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="26"/>
         <Label x:Name="lblNumberMembers" Content="Number of Members" HorizontalAlignment="Left" Margin="404,334,0,0" VerticalAlignment="Top" Width="124"/>
+        <TextBox x:Name="txtBoxName" HorizontalAlignment="Left" Height="50" Margin="579,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="197" KeyDown="txtBoxName_KeyDown"/>
+        <TextBlock x:Name="txtBlkTest" HorizontalAlignment="Left" Margin="490,373,0,0" TextWrapping="Wrap" Text="Test TextBlock" VerticalAlignment="Top" Width="241" Height="30"/>
 
     </Grid>
 </Window>
